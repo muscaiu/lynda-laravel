@@ -12,7 +12,7 @@
 */
 
 Route::get('/', array(
-	'before' => 'newyear',
+	'before' => 'newyear'|'valentines'|'haloween',
 	'after' => 'logvisits',
 	function()
 {

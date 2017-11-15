@@ -96,8 +96,34 @@ Route::filter('newyear', function()
 	}
 });
 
-Route::filter('logvisits', function()
+Route::filter('valentines', function()
 {
-	
+	if(date('m/d') == '2/14'){
+		return 'Happy valentine';
+	}
 });
 
+Route::filter('haloween', function()
+{
+	if(date('m/d') == '10/31'){
+		return 'Trick or treat';
+	}
+});
+
+Route::filter('logvisits', function()
+{
+
+});
+
+Route::filter('age', function($root, $request, $age)
+{
+	if((int) $age <18) return "Soon ..but not yet.";
+});
+
+Route::get('vote', array(
+	'before' => 'age:15', 
+	function()
+	{
+		return 'Vote!';
+	}
+));
