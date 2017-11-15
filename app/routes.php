@@ -11,6 +11,7 @@
 |
 */
 
+/*
 Route::get('/', array(
 	'before' => array('newyear','valentines','haloween','birthday:11/15'),
 	'after' => 'logvisits',
@@ -18,11 +19,16 @@ Route::get('/', array(
 {
 	return View::make('hello'); //filename hello.php
 }));
+*/
+Route::get('/', 'HomeController@showWelcome');
+Route::get('/about', 'AboutController@showAbout');
 
+/*
 Route::get('/about', function()
 {
 	return 'ABOUT content';
 });
+*/
 
 Route::get('/about/directions', array('as' => 'directions', function()
 {
