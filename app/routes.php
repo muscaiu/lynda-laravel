@@ -11,20 +11,24 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array(
+	'before' => 'newyear',
+	'after' => 'logvisits',
+	function()
 {
-	return View::make('hello');
-});
+	return View::make('hello'); //filename hello.php
+}));
 
 Route::get('/about', function()
 {
 	return 'ABOUT content';
 });
 
-Route::get('/about/directions', function()
+Route::get('/about/directions', array('as' => 'directions', function()
 {
-	return 'DIRECTIONS';
-});
+	// $theURL = URL::route('directions')
+	return "DIRECTIONS go to: $theURL";
+}));
 
 Route::any('/submit-form', function()
 {
@@ -34,4 +38,14 @@ Route::any('/submit-form', function()
 Route::get('/about/{theSubject}', function($theSubject)
 {
 	return $theSubject.' content';
+});
+
+Route::get('/about/{theArt}/{theSpeciality}', function($theArt, $theSpeciality)
+{
+	return "Welcome to  $theSpeciality in $theArt";
+});
+
+Route::get('where', function()
+{
+	return Redirect::to('submit-form');
 });

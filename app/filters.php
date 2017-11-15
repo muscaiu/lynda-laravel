@@ -88,3 +88,16 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('newyear', function()
+{
+	if(date('m/d') == '11/15'){
+		return 'Happy new year';
+	}
+});
+
+Route::filter('logvisits', function()
+{
+	
+});
+
