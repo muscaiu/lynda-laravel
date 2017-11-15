@@ -15,3 +15,23 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/about', function()
+{
+	return 'ABOUT content';
+});
+
+Route::get('/about/directions', function()
+{
+	return 'DIRECTIONS';
+});
+
+Route::any('/submit-form', function()
+{
+	return 'FORM';
+});
+
+Route::get('/about/{theSubject}', function($theSubject)
+{
+	return $theSubject.' content';
+});
