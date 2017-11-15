@@ -12,7 +12,7 @@
 */
 
 Route::get('/', array(
-	'before' => 'newyear'|'valentines'|'haloween',
+	'before' => array('newyear','valentines','haloween','birthday:11/15'),
 	'after' => 'logvisits',
 	function()
 {
@@ -49,3 +49,19 @@ Route::get('where', function()
 {
 	return Redirect::to('submit-form');
 });
+
+Route::get('vote', array(
+	'before' => 'age:15', 
+	function()
+	{
+		return 'Vote!';
+	}
+));
+
+Route::get('birthday', array(
+	'before' => 'age:15', 
+	function()
+	{
+		return 'birthday';
+	}
+));

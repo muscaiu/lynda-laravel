@@ -120,10 +120,7 @@ Route::filter('age', function($root, $request, $age)
 	if((int) $age <18) return "Soon ..but not yet.";
 });
 
-Route::get('vote', array(
-	'before' => 'age:15', 
-	function()
-	{
-		return 'Vote!';
-	}
-));
+Route::filter('birthday', function($root, $request, $birthday)
+{
+	if(date('m/d') == $birthday) return "Happy Birthday";
+});
