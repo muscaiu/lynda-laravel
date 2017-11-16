@@ -91,7 +91,7 @@ Route::filter('csrf', function()
 
 Route::filter('newyear', function()
 {
-	if(date('m/d') == '11/15'){
+	if(date('m/d') == '11/16'){
 		return 'Happy new year';
 	}
 });

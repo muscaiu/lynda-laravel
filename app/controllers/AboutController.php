@@ -6,4 +6,15 @@ class AboutController extends BaseController{
     {
         return 'ABOUT content';
     }
+
+    public function showSubject($theSubject)
+    {
+        return $theSubject;
+    }
+
+    public function showDirections()
+    {
+        $theURL = URL::route('directions');
+	    return "DIRECTIONS go to: $theURL";
+    }
 }

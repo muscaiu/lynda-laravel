@@ -20,8 +20,10 @@ Route::get('/', array(
 	return View::make('hello'); //filename hello.php
 }));
 */
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', array('before' => 'newyear', 'uses' => 'HomeController@showWelcome'));
 Route::get('/about', 'AboutController@showAbout');
+Route::get('/about/directions', array('uses' => 'AboutController@showDirections', 'as' => 'directions'));
+Route::get('/about/{theSubject}', 'AboutController@showSubject');
 
 /*
 Route::get('/about', function()
@@ -29,22 +31,25 @@ Route::get('/about', function()
 	return 'ABOUT content';
 });
 */
-
+/*
 Route::get('/about/directions', array('as' => 'directions', function()
 {
 	// $theURL = URL::route('directions')
 	return "DIRECTIONS go to: $theURL";
 }));
+*/
 
 Route::any('/submit-form', function()
 {
 	return 'FORM';
 });
 
+/*
 Route::get('/about/{theSubject}', function($theSubject)
 {
 	return $theSubject.' content';
 });
+*/
 
 Route::get('/about/{theArt}/{theSpeciality}', function($theArt, $theSpeciality)
 {
@@ -56,7 +61,7 @@ Route::get('where', function()
 	return Redirect::to('submit-form');
 });
 
-Route::get('vote', array(
+Route::get('/vote', array(
 	'before' => 'age:15', 
 	function()
 	{
@@ -64,7 +69,7 @@ Route::get('vote', array(
 	}
 ));
 
-Route::get('birthday', array(
+Route::get('/birthday', array(
 	'before' => 'age:15', 
 	function()
 	{
