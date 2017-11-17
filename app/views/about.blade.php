@@ -7,9 +7,9 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <!--[if lt IE 9]>
-<script src="{{URL::asset('_scripts/respond.min.js')}}"></script>
+<script src="{{URL::access('_scripts/respond.min.js')}}"></script>
 <![endif]-->
-<link href="{{URL:asset('_css/main.css')}}" rel="stylesheet" media="screen, projection">
+<link href="{{URL:access('_css/main.css')}}" rel="stylesheet" media="screen, projection">
 <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 </head>
@@ -77,7 +77,7 @@ New York, New York 10001<br>
 </section>
 <section class="show info">
 <h2>Current Show</h2>
-<img src="{{URL:asset('_images/show1.jpg') }}" width="285" height="230" alt="Current show">
+<img src="{{URL:access('_images/show1.jpg') }}" width="285" height="230" alt="Current show">
 <p>Join us on May 11th for the opening reception of Ceramic Currency, an annual show presented by graduates from the Craft and Design program. Come see an exhibition of contemporary pottery and ceramic sculpture by over 30 artists. <a href="about/current_show.htm" title="current show" class="more">more info</a></p>
 </section>
 </aside>

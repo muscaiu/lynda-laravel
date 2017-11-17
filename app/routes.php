@@ -76,3 +76,19 @@ Route::get('/birthday', array(
 		return 'birthday';
 	}
 ));
+
+Route::get('programs', function()
+{
+	return View::make('programs');
+});
+
+Route::get('signup', function()
+{
+	return View::make('signup');
+});
+
+Route::post('thanks', function()
+{
+	$theEmail = Input::get('email');
+	return View::make('thanks')->with('theEmail', $theEmail);
+});

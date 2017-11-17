@@ -4,8 +4,8 @@ class AboutController extends BaseController{
     
     public function showAbout()
     {
-        // return View::make('about');
-        return 'about';
+        return View::make('about');
+        // return 'about';
     }
 
     public function showSubject($theSubject)
